@@ -139,6 +139,7 @@ public struct FullscreenPopup<Item: Equatable, PopupContent: View>: ViewModifier
                 isPresented = false
                 item = nil
             }
+            .statusBarHidden(true)
             .edgesIgnoringSafeArea(.all)
             .animation(.linear(duration: 0.2), value: opacity)
     }
