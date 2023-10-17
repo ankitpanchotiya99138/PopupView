@@ -112,6 +112,10 @@ public struct FullscreenPopup<Item: Equatable, PopupContent: View>: ViewModifier
 
     public func main(content: Content) -> some View {
         content
+            .applyIf(params.isHideStatusBar) { body in
+                body
+                    .statusBarHidden(true)
+            }
             .applyIf(opaqueBackground) { body in
                 body.transparentNonAnimatingFullScreenCover(isPresented: $showSheet) {
                     constructPopup()

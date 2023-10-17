@@ -45,6 +45,7 @@ struct ContentView : View {
                     .type(.floater())
                     .position(.top)
                     .animation(.spring())
+                    .isHideStatusBar(true)
                     .dismissSourceCallback {
                         print($0)
                     }
@@ -56,6 +57,7 @@ struct ContentView : View {
                 $0
                     .type(.floater())
                     .position(.top)
+                    .isHideStatusBar(true)
                     .animation(.spring())
                     .autohideIn(3)
             }
@@ -66,6 +68,7 @@ struct ContentView : View {
                 $0
                     .type(.floater())
                     .position(.bottom)
+                    .isHideStatusBar(true)
                     .animation(.spring())
                     .autohideIn(2)
             }
@@ -76,6 +79,7 @@ struct ContentView : View {
                 $0
                     .type(.floater())
                     .position(.bottom)
+                    .isHideStatusBar(true)
                     .animation(.spring())
                     .autohideIn(5)
             }
@@ -87,6 +91,7 @@ struct ContentView : View {
             } customize: {
                 $0
                     .type(.toast)
+                    .isHideStatusBar(true)
                     .position(.top)
             }
 
@@ -95,6 +100,7 @@ struct ContentView : View {
             } customize: {
                 $0
                     .type(.toast)
+                    .isHideStatusBar(true)
                     .position(.top)
             }
 

@@ -90,7 +90,9 @@ public struct Popup<Item: Equatable, PopupContent: View>: ViewModifier {
 
         /// If true taps do not pass through popup's background and the popup is displayed on top of navbar. Always opaque if closeOnTapOutside is true
         var isOpaque: Bool = false
-
+        
+        var isHideStatusBar = false
+        
         var dismissCallback: (DismissSource) -> () = {_ in}
 
         public func type(_ type: PopupType) -> PopupParameters {
@@ -146,7 +148,13 @@ public struct Popup<Item: Equatable, PopupContent: View>: ViewModifier {
             params.isOpaque = isOpaque
             return params
         }
-
+        
+        public func isHideStatusBar(_ isHideStatusBar: Bool) -> PopupParameters {
+            var params = self
+            params.isHideStatusBar = isHideStatusBar
+            return params
+        }
+       
         public func dismissSourceCallback(_ dismissCallback: @escaping (DismissSource) -> ()) -> PopupParameters {
             var params = self
             params.dismissCallback = dismissCallback
